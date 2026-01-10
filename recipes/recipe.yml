@@ -6,7 +6,7 @@ description: My personal Bazzite OS image with patched kernel raising GPU max fr
 
 # base image to build on top of
 base-image: ghcr.io/ublue-os/bazzite-deck
-image-version: 43 # latest is also supported
+image-version: stable-43 # latest is also supported
 
 modules:
   - type: files
