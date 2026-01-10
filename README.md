@@ -1,4 +1,4 @@
-# bazzite-deck-patched &nbsp; [![bluebuild build badge](https://github.com/vietsman/bazzite-deck-patched/actions/workflows/build.yml/badge.svg)](https://github.com/vietsman/bazzite-deck-patched/actions/workflows/build.yml)
+# bazzite-deck-patched &nbsp; [![bluebuild build badge](https://github.com/f1ana/bazzite-deck-patched/actions/workflows/build.yml/badge.svg)](https://github.com/f1ana/bazzite-deck-patched/actions/workflows/build.yml)
 
 Bazzite Deck image for AMD BC-250 boards with patched kernel raising GPU max frequency to 2230 MHz (from 2000 MHz), lowering min GPU frequency to 350 MHz (from 1000 MHz), and oberon-governor included. 
 ## Installation
@@ -7,7 +7,7 @@ To rebase an existing Bazzite installation to this latest build:
 
 - Rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/vietsman/bazzite-kde-patched:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/f1ana/bazzite-kde-patched:latest
   ```
 - Reboot to complete the installation
   ```
@@ -25,5 +25,5 @@ You can generate an offline ISO with the instructions available [here](https://b
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/vietsman/bc250-patched-kernel
+cosign verify --key cosign.pub ghcr.io/f1ana/bc250-patched-kernel
 ```
