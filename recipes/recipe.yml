@@ -9,6 +9,17 @@ base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: stable-43 # latest is also supported
 
 modules:
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/f1ana/patched-kernel-bc250/repo/fedora-%OS_VERSION%/f1ana-patched-kernel-bc250.repo
+      - https://copr.fedorainfracloud.org/coprs/g/exotic-soc/oberon-governor/repo/fedora-%OS_VERSION%/group_exotic-soc-oberon-governor-fedora-%OS_VERSION%.repo
+    install:
+      - kernel
+      - kernel-core
+      - kernel-modules
+      - kernel-modules-core
+      - oberon-governor
+
   - type: files
     files:
       - source: system
@@ -18,14 +29,5 @@ modules:
     system:
       enabled:
         - oberon-governor.service
-
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/f1ana/patched-kernel-bc250/repo/fedora-%OS_VERSION%/f1ana-patched-kernel-bc250.repo
-    install:
-      - kernel
-      - kernel-core
-      - kernel-modules
-      - kernel-modules-core
 
   - type: signing
