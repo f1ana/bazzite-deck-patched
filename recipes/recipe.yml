@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 name: bazzite-deck-patched
-description: My personal Bazzite OS image with patched kernel raising GPU max frequency to 2230 MHz (from 2000 MHz), lowering min GPU frequency to 350 MHz (from 1000 MHz), and oberon-governor included.
+description: My personal Bazzite OS image with oberon-governor included.
 
 # base image to build on top of
 base-image: ghcr.io/ublue-os/bazzite-deck
@@ -11,13 +11,8 @@ image-version: stable-43 # latest is also supported
 modules:
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/f1ana/patched-kernel-bc250/repo/fedora-%OS_VERSION%/f1ana-patched-kernel-bc250.repo
       - https://copr.fedorainfracloud.org/coprs/g/exotic-soc/oberon-governor/repo/fedora-%OS_VERSION%/group_exotic-soc-oberon-governor-fedora-%OS_VERSION%.repo
     install:
-      - kernel
-      - kernel-core
-      - kernel-modules
-      - kernel-modules-core
       - oberon-governor
 
   - type: files

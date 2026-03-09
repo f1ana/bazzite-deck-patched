@@ -1,6 +1,6 @@
 # bazzite-deck-patched &nbsp; [![bluebuild build badge](https://github.com/f1ana/bazzite-deck-patched/actions/workflows/build.yml/badge.svg)](https://github.com/f1ana/bazzite-deck-patched/actions/workflows/build.yml)
 
-Bazzite Deck image for AMD BC-250 boards with patched kernel raising GPU max frequency to 2230 MHz (from 2000 MHz), lowering min GPU frequency to 350 MHz (from 1000 MHz), and oberon-governor included. 
+Bazzite Deck image for AMD BC-250 boards with oberon-governor included.
 ## Installation
 
 To rebase an existing Bazzite installation to this latest build:
