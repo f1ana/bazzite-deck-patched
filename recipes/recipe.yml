@@ -10,6 +10,10 @@ image-version: latest
 
 modules:
   - type: rpm-ostree
+    install:
+      - umr
+
+  - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/g/exotic-soc/oberon-governor/repo/fedora-%OS_VERSION%/group_exotic-soc-oberon-governor-fedora-%OS_VERSION%.repo
     install:
