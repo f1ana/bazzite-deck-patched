@@ -8,6 +8,7 @@ description: My personal Bazzite OS image with oberon-governor included.
 base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: latest
 
+# modules
 modules:
   - type: rpm-ostree
     install:
