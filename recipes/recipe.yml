@@ -4,7 +4,6 @@
 name: bazzite-deck-patched
 description: My personal Bazzite OS image with oberon-governor included.
 
-# base image to build on top of
 base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: latest
 
