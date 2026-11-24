@@ -1,6 +1,8 @@
 # bazzite-deck-patched &nbsp; [![bluebuild build badge](https://github.com/f1ana/bazzite-deck-patched/actions/workflows/build.yml/badge.svg)](https://github.com/f1ana/bazzite-deck-patched/actions/workflows/build.yml)
 
-Bazzite Deck image for AMD BC-250 boards with oberon-governor included.
+Bazzite Deck image for AMD BC-250 boards with [cyan-skillfish-governor](https://github.com/filippor/cyan-skillfish-governor) included.
+
+The [BC-250 ACPI table fixes](https://github.com/e-tho/bc250-acpi-fix) (CPU idle states and frequency scaling, 6- and 8-core) are built into the image's initramfs. Remove any manually installed ACPI override (`GRUB_EARLY_INITRD_LINUX_CUSTOM` / `/boot/*.cpio`) before rebasing, since duplicate tables fail to load. To update the tables, bump `VERSION` and the checksums in `files/scripts/bc250-acpi-tables.sh`.
 ## Installation
 
 To rebase an existing Bazzite installation to this latest build:

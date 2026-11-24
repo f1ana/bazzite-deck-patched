@@ -2,22 +2,22 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 name: bazzite-deck-patched
-description: My personal Bazzite OS image with oberon-governor included.
+description: My personal Bazzite OS image with cyan-skillfish-governor included.
 
 base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: latest
 
 # modules
 modules:
-  - type: rpm-ostree
-    install:
-      - umr
-
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      - https://copr.fedorainfracloud.org/coprs/g/exotic-soc/oberon-governor/repo/fedora-%OS_VERSION%/group_exotic-soc-oberon-governor-fedora-%OS_VERSION%.repo
+      cleanup: true
+      copr:
+        - filippor/bazzite
     install:
-      - oberon-governor
+      packages:
+        - umr
+        - cyan-skillfish-governor-smu
 
   - type: files
     files:
@@ -27,6 +27,13 @@ modules:
   - type: systemd
     system:
       enabled:
-        - oberon-governor.service
+        - cyan-skillfish-governor-smu.service
+
+  - type: script
+    scripts:
+      - bc250-acpi-tables.sh
+
+  # must stay after anything that changes dracut config or the ACPI tables
+  - type: initramfs
 
   - type: signing
